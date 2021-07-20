@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R Programming"
-author: "Sana Rasheed"
-date: "May 14, 2020"
+author: "Muhammad Akmal Waheed"
+date: "July 20, 2021"
 output: html_document
 ---
 
@@ -24,26 +24,30 @@ output: html_document
 
 ```{r }
 #### Start solution ####
+first_name <- c("M","A","K","M","A","L")
+class(first_name)
 ```
 
 
 ```{r }
-
+Concat_firstname = cat(first_name)
 ```
 
 
 ```{r }
-
+X<- 100:120
 ```
 
 
 ```{r }
-
+data<- seq(2,18,2)
+matrix <- matrix(data, nrow=3, ncol=3)
 ```
 
 
 ```{r }
-
+dimnames(matrix) <- list(c("r1","r2","r3"), c("c1","c2","c3"))
+matrix
 ```
 
 
@@ -64,17 +68,18 @@ output: html_document
 
 
 ```{r }
-
+emp_status <- factor(c("Employed", "Unemployed", "Employed",  "Unemployed", "Self-Employed", "Employed", "Self-Employed", "Unemployed", "Employed", "Unemployed", "Employed", "Self-Employed"))
 ```
 
 
 ```{r }
-
+emp_status
+table(emp_status)
 ```
 
 
 ```{r }
-
+unclass (emp_status)
 ```
 
 
@@ -101,22 +106,28 @@ output: html_document
 
 
 ```{r }
-
+Bank_customers <- data.frame(customerid="", hasAccount="", totalBalance="")
 ```
 
 
 ```{r }
-
+bank_customers <- data.frame(customerid="Alicia", hasAccount=F, totalBalance= NA)
+bank_customers <- data.frame(customerid="Nancy", hasAccount=T, totalBalance= 10000)
+bank_customers <- data.frame(customerid="Fernando", hasAccount=T, totalBalance=  100)
+bank_customers <- data.frame(customerid="Louis", hasAccount=T, totalBalance= 0)
+bank_customers <- data.frame(customerid="Diane", hasAccount=NA, totalBalance= NA)
 ```
 
 
 ```{r }
-
+bank_customers <- data.frame(customerid= c("Alicia", "Nancy", "Fernando", "Louis", "Diane"), hasAccount=c(F,T,T,T,NA), totalBalance= c(NA,10000, 100, 0,  NA))
 ```
 
 
 ```{r }
-
+nrow(bank_customers)
+ncol(bank_customers)
+names(bank_customers) 
 ```
 
 
@@ -143,27 +154,47 @@ output: html_document
 
 
 ```{r }
-
+x = seq(1, 100)
+prime_numbers=c()
+for (i in seq(2, 100)) {
+  if (any(x == i)) {
+    prime_numbers = c(prime_numbers, i)
+    x = c(x[(x %% i) != 0], i)
+  }
+}
+print(prime_numbers)
 ```
 
 
 ```{r }
-
+var=1
+while(var<=10){
+  print(var)
+  var=var+1
+}
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
+x=2
+control=0
+while (x>=2 && x<=29){
+  count=0
+  a=x
+  while(a>0){
+    if(x %% a == 0){
+      count=count+1
+    }
+    a=a-1
+  }
+  if(count==2){
+    control=control+1
+    if(control == 10){
+      print(x)
+    }
+  }
+  x = x+1
+}
 ```
 
 
@@ -182,27 +213,13 @@ output: html_document
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
+mat_1 = matrix(1:9, 3,3)
+mat_1 = matrix(1:9, 3,3, dimnames = list(c("r1", "r2","r3"), c("c1", "c2","c3")))
+for (i in 1:nrow(mat_1)){
+  for(j in 1:ncol(mat_1)){
+    print(mat_1[,])
+  }
+}
 ```
 
 
@@ -227,27 +244,57 @@ output: html_document
 
 
 ```{r }
-
+gcd = function(a,b){
+  #some expression
+}
 ```
 
 
 ```{r }
-
+a= readline("ENTER FIRST NO.")
+b= readline("ENTER SECOND NO.")
+gcd = function(a,b){
+#some expression
+}
 ```
 
 
 ```{r }
-
+gcd = function(a,b){
+  if(a>b){
+    small = b
+  }
+  else{
+    small = a
+  }
+  for (c in 1:small){
+    if((a%%c==0) && (b%%c==0)){
+      hcf = c
+    }
+  }
+  print(hcf)
+  return(hcf)
+}
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
+gcd = function(a,b){
+  if(a>b){
+    small = b
+  }
+  else{
+    small = a
+  }
+  for (c in 1:small){
+    if((a%%c==0) && (b%%c==0)){
+      hcf = c
+    }
+  }
+  print(hcf)
+  return(hcf)
+answer = hcf
+}  
 ```
 
 
@@ -269,27 +316,50 @@ output: html_document
 
 
 ```{r }
-
+allConditionsMeet = function (inputs){
+  #expressions
+}
 ```
 
 
 ```{r }
-
+a= readline("ENTER FIRST NO.")
+b= readline("ENTER SECOND NO.")
+a = as.integer(a)
+b = as.integer(b)
 ```
 
 
 ```{r }
-
+allConditionsMeet = function (a,b){
+  a = as.integer(a)
+  b = as.integer(b)
+if(a>=0 && b>=0){
+}
+}
 ```
 
 
 ```{r }
-
+allConditionsMeet = function (a,b){
+  a = as.integer(a)
+  b = as.integer(b)
+if(a>=0 && b>=0){
+print(T)
+}
+}
 ```
 
 
 ```{r }
-
+allConditionsMeet = function (a,b){
+  a = as.integer(a)
+  b = as.integer(b)
+if(a>=0 && b>=0){
+  paste(T, a, b)
+}
+}
+allConditionsMeet(05,1)
 ```
 
 
@@ -316,27 +386,31 @@ output: html_document
 
 
 ```{r }
-
+matrix_1 = as.matrix(1:6, nrow=2, ncol=3)
+matrix_2 = as.matrix(7:12, nrow=3, ncol=2)
+matrix_1 * matrix_2 
 ```
 
 
 ```{r }
-
+matrix_1 = matrix(1:6, nrow=2, ncol=3)
+matrix_2 = matrix(7:12, nrow=3, ncol=2)
+matrix_1 %*%  matrix_2 
 ```
 
 
 ```{r }
-
+my_mat = matrix(1:4, 2,2)  
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
+determinant = function (a,b,c,d){
+  m = matrix(c(a,b,c,d), 2,2)
+  det = (a*d - b*c)
+  print(det)
+}
+determinant(1,2,3,4)
 ```
 
 
@@ -360,27 +434,20 @@ output: html_document
 
 
 ```{r }
-
+curr_date = Sys.Date()
+curr_time = Sys.time()
 ```
 
 
 ```{r }
-
+a = as.POSIXlt(curr_date)
+b = as.POSIXlt(curr_time)
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
+ a$year; a$wday
+ b$wday;  b$year; b$sec; b$hour 
 ```
 
 
@@ -400,27 +467,19 @@ output: html_document
 
 
 ```{r }
-
+Curr_date = Sys.Date()
+Curr_time = Sys.time()
 ```
 
 
 ```{r }
-
+Time_zoneGMT = as.POSIXct(curr_time, tz = "GMT-5")
+Time_zoneDEF = as.POSIXct(curr_time)
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
+Time_zoneGMT - Time_zoneDEF
 ```
 
 
@@ -444,27 +503,27 @@ output: html_document
 
 
 ```{r }
-
+numbers = 100:150
 ```
 
 
 ```{r }
-
+lapply(list(numbers), mean);  lapply(list(numbers), sd)
 ```
 
 
 ```{r }
-
+sapply(list(numbers), mean); sapply(list(numbers), sd)
 ```
 
 
 ```{r }
-
+apply(matrix(numbers, 17,3), 2, mean); apply(matrix(numbers, 17,3), 2, sd)
 ```
 
 
 ```{r }
-
+tapply(c(numbers), INDEX = gl(3,17), mean); tapply(c(numbers), INDEX = gl(3,17), sd) 
 ```
 
 
@@ -484,27 +543,17 @@ output: html_document
 
 
 ```{r }
-
+mat = matrix(1:16, 4,4)
 ```
 
 
 ```{r }
-
+row_mean = apply(mat, 1, mean); col_mean = apply(mat, 2, mean)
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
+row_mean; col_mean
 ```
 
 
@@ -542,27 +591,17 @@ head(Orange)
 
 
 ```{r }
-
+split_data = split(Orange,Orange$circumference, gl(5,7))
 ```
 
 
 ```{r }
-
+print(split_data$"30"); print(split_data$"75")
 ```
 
 
 ```{r }
-
-```
-
-
-```{r }
-
-```
-
-
-```{r }
-
+lapply(split_data$"30", mean); lapply(split_data$"214", mean)
 ```
 
 
